@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research &mdash; Abdul Basit Tonmoy</title>
+    <meta
+      name="description"
+      content="Research notes and publications by Abdul Basit Tonmoy on representation geometry, cost-aware multimodal inference, and ML systems."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../assets/img/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a href="../index.html" class="brand">
+        <span class="brand-glyph">abt</span>
+      </a>
+      <nav class="nav-list" aria-label="primary">
+        <a href="../index.html#about">01 : about</a>
+        <a href="./index.html" aria-current="page">02 : research</a>
+        <a href="../projects/index.html">03 : projects</a>
+        <a href="../experience/index.html">04 : experience</a>
+        <a href="../blog/index.html">05 : blog</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">06 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">07 : resume</a>
+      </nav>
+    </header>
+
+    <main class="page" id="top">
+      <header class="page-header">
+        <p class="page-eyebrow">
+          <a href="../index.html" class="back-link">&larr; back</a>
+          <span class="dot">&middot;</span>
+          <span>research</span>
+        </p>
+
+        <h1 class="page-title">
+          What I'm <em>researching</em>
+        </h1>
+
+        <p class="page-lede">
+          Three threads run through my work: the <em>geometry</em> of learned
+          representations, the <em>cost</em> of multimodal inference, and the
+          small engineering choices that decide whether a model is usable in
+          practice. Below are the threads themselves, then the papers that
+          fall out of them.
+        </p>
+      </header>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">01 :</span> Interests
+        </h2>
+
+        <ol class="interests">
+          <li class="interest">
+            <h3 class="interest-name">Representation geometry</h3>
+            <p class="interest-desc">
+              How embedding spaces deform under fine-tuning, quantization,
+              and LoRA adaptation &mdash; and whether unlabeled,
+              model-agnostic metrics can predict downstream degradation
+              before it shows up in eval. This is the thread behind
+              <em>SemanticSentry</em>.
+            </p>
+          </li>
+
+          <li class="interest">
+            <h3 class="interest-name">Cost-aware multimodal inference</h3>
+            <p class="interest-desc">
+              Practical ways to keep vision-language pipelines cheap: frame
+              deduplication, hierarchical attention budgets, adaptive
+              sampling that preserves signal at a fraction of the API cost.
+              This is the thread behind <em>AdaFrame</em> and the
+              <em>AdLovin</em> pipeline.
+            </p>
+          </li>
+
+          <li class="interest">
+            <h3 class="interest-name">Systems for ML at scale</h3>
+            <p class="interest-desc">
+              The plumbing &mdash; Rust OCR engines, TensorRT inference,
+              structured downstream analytics &mdash; that lets research
+              artifacts move from notebook to production. This is the thread
+              behind my work at <a href="https://skop.dev/"><em>Skop Intelligence</em></a>.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">02 :</span> Publications
+        </h2>
+
+        <ol class="pubs pubs-detailed">
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">BlackboxNLP @ EMNLP</span>
+              <span class="status">under review</span>
+            </div>
+            <h3 class="pub-title">
+              Geometric Drift Metrics are Insufficient: A Matched-Magnitude
+              Dissociation Between Aligned and Anti-Aligned Fine-Tuning
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B., Deng, Q.</p>
+
+            <p class="pub-abstract">
+              Geometric similarity metrics &mdash; Centered Kernel Alignment,
+              neighborhood preservation, isotropy &mdash; are widely used to
+              compare neural representations and infer functional similarity.
+              We show this inference fails in two complementary directions.
+              On E5-base-v2, matched-NPS conditions produce order-of-magnitude
+              differences in retrieval damage depending on the fine-tuning
+              objective; on BERT, near-trivial geometric drift coexists with
+              a large, CI-disjoint functional gap between MLM and contrastive
+              fine-tuning on the same corpus. Geometric drift magnitude
+              <em>does not</em> predict the sign or scale of functional change
+              without knowledge of the gradient&ndash;pretraining alignment.
+            </p>
+
+            <p class="contribution-label">contributions</p>
+            <ul class="pub-contributions">
+              <li>
+                A matched-magnitude dissociation on E5 between
+                gradient-aligned and gradient-anti-aligned fine-tuning at
+                fixed Neighborhood Preservation Score, demonstrated across
+                three seeds and a pre-registered hypothesis.
+              </li>
+              <li>
+                A converse dissociation on BERT where the more-drifted
+                condition is functionally <em>better</em>, opposite to what
+                NPS would predict.
+              </li>
+              <li>
+                A pre-registered corpus control ruling out distribution
+                shift, plus structural controls (matched-Frobenius random
+                rank-4, full-rank fine-tuning) ruling out low-rank
+                confinement as the driver.
+              </li>
+              <li>
+                A linear-probe methodology finding: up to 28.5&nbsp;pp
+                accuracy swings at <em>identical</em> embeddings under
+                weak vs. cross-validated probe configurations &mdash; large
+                enough to contaminate published fine-tuning evaluations.
+              </li>
+            </ul>
+
+            <p class="pub-links">
+              <a href="../assets/papers/semantic-drift.pdf">pdf</a>
+              <a href="https://github.com/abtonmoy/semantic-sentry">code</a>
+              <a href="#">bibtex</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">ACM Multimedia</span>
+              <span class="status">in review</span>
+            </div>
+            <h3 class="pub-title">
+              AdaFrame: Hierarchical Multimodal Deduplication with Adaptive
+              Information Budgeting for Cost-Efficient Video Advertisement
+              Analysis
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B., Luthra, A., Deng, Q.</p>
+
+            <p class="pub-abstract">
+              Modern video advertisement analysis pipelines spend most of
+              their compute and API budget on near-duplicate frames. AdaFrame
+              tackles this with a hierarchical multimodal deduplication
+              scheme that allocates an <em>adaptive information budget</em>
+              across frames, prioritizing visual-textual diversity over
+              uniform sampling. On an advertising-video corpus the method
+              achieves 70&ndash;90% frame deduplication and reduces
+              downstream vision-API cost by roughly 70% while preserving
+              structured signal extraction.
+            </p>
+
+            <p class="contribution-label">contributions</p>
+            <ul class="pub-contributions">
+              <li>
+                Hierarchical deduplication combining CLIP image embeddings
+                with audio-state features from HuBERT.
+              </li>
+              <li>
+                An adaptive per-clip information budget driven by local
+                visual-textual diversity.
+              </li>
+              <li>
+                70&ndash;90% frame deduplication with negligible quality
+                loss on downstream extraction tasks.
+              </li>
+            </ul>
+
+            <p class="pub-links">
+              <a href="../assets/papers/adaframe.pdf">pdf</a>
+              <a href="https://github.com/abtonmoy/calhacks12">code</a>
+              <a href="#">arxiv</a>
+              <a href="#">bibtex</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2025</span>
+              <span class="venue">IEEE ICAIC</span>
+            </div>
+            <h3 class="pub-title">
+              Advanced Facial Emotion Classification with 135 Classes for
+              Enhanced Cybersecurity Applications
+            </h3>
+            <p class="pub-authors">
+              Powers, G., Jin, A., Tonmoy, A. B., Cao, H., Gohel, H., Deng, Q.
+            </p>
+
+            <p class="pub-abstract">
+              A fine-grained facial-emotion classifier scaling to 135
+              compound emotion classes, oriented toward cybersecurity
+              applications where coarse 7-class emotion models miss subtle
+              deception, stress, and intent signals. Presented at the IEEE
+              International Conference on Artificial Intelligence in
+              Cybersecurity (ICAIC) 2025.
+            </p>
+
+            <p class="pub-links">
+              <a href="https://ieeexplore.ieee.org/abstract/document/10848788">ieee xplore</a>
+              <a href="#">bibtex</a>
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="cta">
+        <p class="cta-line">
+          Code for these papers lives at
+          <a href="https://github.com/abtonmoy">github.com/abtonmoy</a>.
+          For talks, drafts, or collaboration:
+          <a href="mailto:atonmoy27@wabash.edu">atonmoy27@wabash.edu</a>.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p class="signoff">
+          brewed in good old earth &middot; 2026
+        </p>
+        <p class="signoff small">
+          hand-written html &amp; css &middot; no javascript &middot;
+          <a href="https://github.com/abtonmoy">view source</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

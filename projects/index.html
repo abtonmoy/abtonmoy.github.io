@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects &mdash; Abdul Basit Tonmoy</title>
+    <meta
+      name="description"
+      content="A working catalog of projects, research systems, experiments, and forks by Abdul Basit Tonmoy."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../assets/img/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a href="../index.html" class="brand">
+        <span class="brand-glyph">abt</span>
+      </a>
+      <nav class="nav-list" aria-label="primary">
+        <a href="../index.html#about">01 : about</a>
+        <a href="../research/index.html">02 : research</a>
+        <a href="./index.html" aria-current="page">03 : projects</a>
+        <a href="../experience/index.html">04 : experience</a>
+        <a href="../blog/index.html">05 : blog</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">06 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">07 : resume</a>
+      </nav>
+    </header>
+
+    <main class="page" id="top">
+      <header class="page-header">
+        <p class="page-eyebrow">
+          <a href="../index.html" class="back-link">&larr; back</a>
+          <span class="dot">&middot;</span>
+          <span>workshop</span>
+        </p>
+
+        <h1 class="page-title">
+          Things I've <em>built</em> &amp; explored
+        </h1>
+
+        <p class="page-lede">
+          A working catalog &mdash; research systems I built end-to-end,
+          weekend prototypes that never quite finished, and forks I keep
+          around because the code taught me something. Sorted by intent,
+          not by polish.
+        </p>
+      </header>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">&#9733;</span> Featured
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">SemanticSentry</h3>
+              <span class="project-tag">2025 &middot; library &middot; under review</span>
+            </div>
+            <p class="project-desc">
+              Research code and pre-registrations accompanying our
+              BlackboxNLP @ EMNLP 2026 submission,
+              <em>Geometric Drift Metrics are Insufficient</em>. Implements
+              CKA, NPS, and isotropy diagnostics; the matched-Frobenius
+              perturbation and matched-corpus MLM controls; the
+              cross-validated linear-probe pipeline; and pre-registration
+              documents for every experiment in the paper.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>pytorch</li><li>faiss</li>
+              <li>transformers</li><li>clip</li><li>w&amp;b</li><li>mlflow</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/abtonmoy/semantic-sentry">github</a>
+              <a href="../assets/papers/semantic-drift.pdf">paper draft</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">AdLovin</h3>
+              <span class="project-tag">Oct 2025 &middot; CalHacks-12 winner</span>
+            </div>
+            <p class="project-desc">
+              A multi-agent advertisement analysis pipeline combining computer
+              vision, vector retrieval, and LLM reasoning to extract marketing
+              and business signals from video. Reaches 70&ndash;90% frame
+              deduplication and reduces vision-API cost by roughly 70% while
+              preserving downstream extraction quality. The pipeline behind our
+              ACM&nbsp;MM&nbsp;2026 paper, <em>AdaFrame</em>.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>claude api</li><li>chromadb</li>
+              <li>opencv</li><li>pytorch</li><li>hubert</li><li>ffmpeg</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/abtonmoy/calhacks12">github</a>
+              <a href="https://devpost.com/software/adlovin-media-intelligence">devpost</a>
+              <a href="../assets/papers/adaframe.pdf">paper draft</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">01 :</span> Research Systems
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Wally</h3>
+              <span class="project-tag">2025 &middot; autonomous robotics</span>
+            </div>
+            <p class="project-desc">
+              Autonomous mobile robot built during my robotics-research
+              internship at Wabash. Fuses GPS, computer vision, and LiDAR
+              streams for real-time outdoor navigation, reaching 97% obstacle
+              detection and avoidance with ~2&nbsp;m positional precision in
+              the field. Includes emergency-stop protocols and a
+              configuration-driven control stack.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>ros</li><li>opencv</li><li>lidar</li>
+              <li>gps</li><li>pid control</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/abtonmoy/Wally">github</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Financial Knowledge Graph</h3>
+              <span class="project-tag">2025 &middot; retrieval &middot; rag</span>
+            </div>
+            <p class="project-desc">
+              End-to-end platform for extracting financial entities from
+              unstructured filings, storing them as vector embeddings
+              alongside a typed knowledge graph, and exposing an intelligent
+              query layer that combines graph traversal with semantic
+              retrieval.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>neo4j</li><li>chromadb</li>
+              <li>transformers</li><li>langchain</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/abtonmoy/Financial-Knowledge-Graph">github</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">ADos</h3>
+              <span class="project-tag">Jan 2026 &middot; Gemini 3 hackathon</span>
+            </div>
+            <p class="project-desc">
+              AI-powered system for automatic video advertisement analysis
+              built on top of Google's Gemini 3 multimodal models &mdash;
+              extracting structured signals about messaging, pacing, and
+              brand cues from raw advertising footage. A follow-up to
+              <em>AdLovin</em>, swapping in Gemini's native long-video
+              reasoning.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>gemini api</li><li>ffmpeg</li>
+              <li>chromadb</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/abtonmoy/gemini-3-hackathon">github</a>
+              <a href="https://devpost.com/software/ados">devpost</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">02 :</span> Experiments &amp; Prototypes
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">RacePace</h3>
+              <span class="project-tag">Apr 2026 &middot; multi-agent</span>
+            </div>
+            <p class="project-desc">
+              Sim-racing telemetry copilot. Three agents observe a live sim
+              session &mdash; one watches inputs and pace, one watches the
+              car state, one talks to the driver &mdash; coordinating to
+              surface coaching cues mid-stint. Built to test whether
+              cooperative agents beat a single oracle on a hard real-time
+              perception task.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>multi-agent</li><li>llm</li>
+              <li>realtime</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/abtonmoy/RacePace">github</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="cta">
+        <p class="cta-line">
+          The rest lives at
+          <a href="https://github.com/abtonmoy">github.com/abtonmoy</a> &mdash;
+          mostly course work, half-finished branches, and
+          <s>shameful</s> formative early commits.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p class="signoff">
+          brewed in good old earth &middot; 2026
+        </p>
+        <p class="signoff small">
+          hand-written html &amp; css &middot; no javascript &middot;
+          <a href="https://github.com/abtonmoy">view source</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

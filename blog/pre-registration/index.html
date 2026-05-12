@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Pre-registration changed how I read my own results &mdash; Abdul Basit Tonmoy
+    </title>
+    <meta
+      name="description"
+      content="A short essay on the role pre-registered hypotheses played in the BlackboxNLP submission on geometric drift metrics — including the one window we cleanly failed."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../../assets/img/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a href="../../index.html" class="brand">
+        <span class="brand-glyph">abt</span>
+      </a>
+      <nav class="nav-list" aria-label="primary">
+        <a href="../../index.html#about">01 : about</a>
+        <a href="../../research/index.html">02 : research</a>
+        <a href="../../projects/index.html">03 : projects</a>
+        <a href="../../experience/index.html">04 : experience</a>
+        <a href="../index.html" aria-current="page">05 : blog</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">06 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">07 : resume</a>
+      </nav>
+    </header>
+
+    <main class="page" id="top">
+      <header class="page-header">
+        <p class="page-eyebrow">
+          <a href="../index.html" class="back-link">&larr; back to blog</a>
+          <span class="dot">&middot;</span>
+          <span>essay</span>
+        </p>
+
+        <div class="post-tags-row">
+          <span class="post-date">May 2026</span>
+          <span class="post-tag">methodology</span>
+          <span class="post-tag">behind the paper</span>
+        </div>
+
+        <h1 class="page-title">
+          Pre-registration <em>changed</em> how I read my own results
+        </h1>
+
+        <p class="post-deck">
+          A note on the small ritual that made our BlackboxNLP submission
+          more defensible &mdash; and the one pre-registered hypothesis we
+          cleanly failed.
+        </p>
+      </header>
+
+      <article class="post-body">
+        <p>
+          There's a small ritual I keep falling back into. Run an
+          experiment, look at the result, then narrate the experiment in
+          the past tense &mdash; as if the result had been the thing I
+          expected all along. The chart looks tidy in retrospect. The
+          hypothesis cleans itself up. The Discussion section, by the time
+          I'm done writing it, is a model of <em>post hoc</em> clarity.
+        </p>
+
+        <p>
+          Pre-registration is the thing that broke me of this. Not all the
+          way. Most of the way.
+        </p>
+
+        <p>
+          The premise is dumb on its face: write down what you predict
+          before you run the experiment. Save the document. Make it
+          timestamped, ideally in a place you can't quietly edit later.
+          Then run the experiment. After, compare what happened to what
+          you wrote. This sounds like ceremony. It mostly isn't.
+        </p>
+
+        <div class="section-break" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+
+        <p>
+          The most useful pre-registration I wrote this year was for a
+          follow-up to a finding I was nervous about. We had observed that
+          an MLM LoRA fine-tune of <em>E5-base-v2</em> on Wikipedia damaged
+          retrieval by about 10 percentage points on MS&nbsp;MARCO. The
+          natural objection was distribution shift: Wikipedia is OOD
+          relative to MS&nbsp;MARCO, so what looks like &ldquo;MLM damages
+          retrieval&rdquo; might really just be &ldquo;the model is
+          adapting to a different topic mix and forgetting the relevant
+          one.&rdquo;
+        </p>
+
+        <p>
+          To rule that out, we needed a corpus control: train MLM LoRA on
+          the <em>same MS MARCO passages</em> contrastive LoRA was trained
+          on, and see if the damage persists. Before running it, I wrote
+          out three hypotheses:
+        </p>
+
+        <ul class="post-list">
+          <li>
+            <strong>A. Objective-driven.</strong> MS&nbsp;MARCO retrieval
+            drops &ge;&nbsp;5&nbsp;pp at epoch 50. The loss is doing the
+            damage; the corpus is irrelevant.
+          </li>
+          <li>
+            <strong>B. Corpus-driven.</strong> Retrieval stays within base
+            95% CI. The Wikipedia result was about distribution shift.
+          </li>
+          <li>
+            <strong>C. Mixed.</strong> Something in between &mdash;
+            1&ndash;5&nbsp;pp.
+          </li>
+        </ul>
+
+        <p>
+          The 5&nbsp;pp threshold for A wasn't arbitrary, but it also
+          wasn't tuned to the data; I picked it before I had seen a single
+          seed. What actually happened was a 10.2&nbsp;pp drop &mdash;
+          twice the threshold. Hypothesis A was clean. The MLM loss
+          damages retrieval regardless of corpus.
+        </p>
+
+        <p>
+          Here's the part that mattered. If I had skipped the
+          pre-registration step and just run the experiment, the
+          10.2&nbsp;pp number would have <em>felt the same</em> to me. I
+          would have written the same conclusion. But I would have given
+          myself no way to argue, even internally, that I hadn't tuned the
+          threshold downward after seeing the number. The pre-registration
+          was the thing that turned a result I already believed into a
+          result I could actually defend.
+        </p>
+
+        <div class="section-break" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+
+        <p>
+          The other pre-registration that mattered was the one we
+          <em>failed</em>.
+        </p>
+
+        <p>
+          For the BERT cross-family replication, I wrote down a matched-NPS
+          window of <strong>[0.28, 0.36]</strong>. The
+          contrastive-LoRA BERT condition lived in that band, so any
+          directly comparable MLM-on-BERT condition should too &mdash;
+          otherwise it wouldn't be a <em>matched</em> magnitude test.
+        </p>
+
+        <p>The realized NPS for BERT MLM came out at 0.836.</p>
+
+        <p>
+          That's nowhere near the window. The pre-registration was explicit
+          that an out-of-window result would invalidate the strict
+          matched-magnitude hypothesis test, and it did. Strictly speaking,
+          the headline claim &mdash; &ldquo;geometric drift magnitude
+          doesn't predict functional outcome&rdquo; &mdash; couldn't be
+          tested on this experiment in the form I'd planned.
+        </p>
+
+        <p>
+          Without the pre-registration, I would have softened that. I would
+          have written something like: <em>&ldquo;BERT MLM produces low
+          drift and minimal functional change; BERT contrastive produces
+          high drift and large functional change; the relationship is
+          preserved.&rdquo;</em> That's a true sentence. It is also a
+          different sentence than the one I'd promised to write.
+        </p>
+
+        <p>
+          With the pre-registration, I had to explicitly admit something
+          more interesting: the matched-magnitude framework is not
+          well-defined for a model whose pretraining objective is identical
+          to its fine-tuning objective, because the gradient is
+          approximately zero and nothing moves. The NPS-window violation
+          was itself the finding &mdash; a boundary condition on the
+          framework I hadn't seen until the experiment forced me to.
+        </p>
+
+        <p>
+          That was a better result than the one I would have written
+          without the constraint. It just didn't feel like one until later.
+        </p>
+
+        <div class="section-break" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+
+        <p>
+          The thing pre-registration changes is not really
+          <em>which</em> experiments you run. The experiments are the same.
+          What changes is the asymmetry between you-before and you-after.
+        </p>
+
+        <p>
+          Before the data, you have a hypothesis. After the data, you have
+          a result <em>and</em> an explanation. If you don't separate those
+          two stages with a timestamp, the explanation will, almost without
+          exception, expand to absorb the result. You will read your data
+          as a confirmation of the thing you now believe.
+        </p>
+
+        <p>
+          A timestamped document on disk is a small piece of evidence in a
+          future argument with yourself. That's all. It's not enough to
+          make you honest. It is just enough to make you traceable.
+        </p>
+      </article>
+
+      <section class="cta">
+        <p class="cta-line">
+          Full paper draft at
+          <a href="../../assets/papers/semantic-drift.pdf">semantic_drift.pdf</a>;
+          pre-registration documents live in the
+          <a href="https://github.com/abtonmoy/semantic-sentry">semantic-sentry</a>
+          repo at <code>experiments/*/PREREGISTRATION.md</code>. Want to
+          argue with this? &mdash;
+          <a href="mailto:atonmoy27@wabash.edu">atonmoy27@wabash.edu</a>.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p class="signoff">
+          brewed in good old earth &middot; May 2026
+        </p>
+        <p class="signoff small">
+          hand-written html &amp; css &middot; no javascript &middot;
+          <a href="https://github.com/abtonmoy">view source</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abdul Basit Tonmoy</title>
+    <meta
+      name="description"
+      content="Abdul Basit Tonmoy — undergraduate researcher at Wabash College working on multimodal ML, embedding geometry, and efficient inference systems."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a href="#top" class="brand">
+        <span class="brand-glyph">abt</span>
+      </a>
+      <nav class="nav-list" aria-label="primary">
+        <a href="#about">01 : about</a>
+        <a href="research/index.html">02 : research</a>
+        <a href="projects/index.html">03 : projects</a>
+        <a href="experience/index.html">04 : experience</a>
+        <a href="blog/index.html">05 : blog</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">06 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">07 : resume</a>
+      </nav>
+    </header>
+
+    <main class="page" id="top">
+      <section class="hero">
+        <div class="hero-grid">
+          <p class="greeting">hi there!</p>
+
+          <h1 class="title">
+            I'm <em class="name">Abdul Basit Tonmoy</em>,
+          </h1>
+
+          <p class="rotating-line">
+            <span
+              class="rotator"
+              role="text"
+              aria-label="an engineer, researcher, hacker and photographer; a coffee and sunset enthusiast; a weekend hiker and amateur footballer"
+            >
+              <span>an engineer, researcher, hacker &amp; photographer</span>
+              <span>a coffee &amp; sunset enthusiast</span>
+              <span>a weekend hiker &amp; amateur footballer</span>
+            </span>
+          </p>
+
+          <p class="identity">
+            I think about how learned representations <em>deform</em>
+            under fine-tuning, quantization, and distribution shift
+            &mdash; and how to keep them cheap at scale. Currently
+            co-founding <a href="https://skop.dev/">Skop</a>.
+          </p>
+
+          <p class="contact">
+            <a href="mailto:atonmoy27@wabash.edu">email</a>
+            <span class="dot" aria-hidden="true">&middot;</span>
+            <a href="https://github.com/abtonmoy">github</a>
+            <span class="dot" aria-hidden="true">&middot;</span>
+            <a href="https://linkedin.com/in/abdul-basit-tonmoy">linkedin</a>
+            <span class="dot" aria-hidden="true">&middot;</span>
+            <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">cv</a>
+            <span class="dot" aria-hidden="true">&middot;</span>
+            <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">resume</a>
+          </p>
+
+          <figure class="hero-avatar">
+            <svg
+              class="stain-ring"
+              viewBox="0 0 240 240"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+                  <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.024"
+                    numOctaves="2"
+                    seed="4"
+                  />
+                  <feDisplacementMap in="SourceGraphic" scale="5" />
+                </filter>
+              </defs>
+              <circle
+                cx="120"
+                cy="120"
+                r="100"
+                fill="none"
+                stroke="#0a0a0a"
+                stroke-width="4"
+                filter="url(#rough)"
+              />
+              <circle
+                cx="120"
+                cy="120"
+                r="108"
+                fill="none"
+                stroke="#0a0a0a"
+                stroke-width="1.2"
+                opacity="0.55"
+                filter="url(#rough)"
+              />
+              <circle
+                cx="120"
+                cy="120"
+                r="93"
+                fill="none"
+                stroke="#0a0a0a"
+                stroke-width="0.8"
+                opacity="0.4"
+                filter="url(#rough)"
+              />
+            </svg>
+            <img
+              class="avatar"
+              src="assets/img/profile.jpg"
+              alt="Abdul Basit Tonmoy"
+              loading="eager"
+              width="170"
+              height="170"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="currently" id="about">
+        <h2 class="brewing">
+          <span class="steam" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span>currently brewing</span>
+        </h2>
+        <ul class="now-list">
+          <li>
+            Building <a href="https://skop.dev/"><em>Skop</em></a>.
+          </li>
+          <li>
+            <em>AdaFrame</em> is under review at ACM Multimedia 2026.
+          </li>
+          <li>
+            <em>SemanticSentry</em> is under review at BlackboxNLP @ EMNLP 2026.
+          </li>
+          <li>
+            reading on representation geometry, post-quantization drift, and
+            physics-informed ML.
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="research">
+        <h2 class="block-title">
+          <span class="num">02 :</span> Publications
+          <a class="see-all" href="research/index.html">see all &rarr;</a>
+        </h2>
+
+        <ol class="pubs">
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">BlackboxNLP @ EMNLP</span>
+              <span class="status">under review</span>
+            </div>
+            <h3 class="pub-title">
+              Geometric Drift Metrics are Insufficient: A Matched-Magnitude
+              Dissociation Between Aligned and Anti-Aligned Fine-Tuning
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B., Deng, Q.</p>
+            <p class="pub-links">
+              <a href="assets/papers/semantic-drift.pdf">pdf</a>
+              <a href="https://github.com/abtonmoy/semantic-sentry">code</a>
+              <a href="#">bibtex</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">ACM Multimedia</span>
+              <span class="status">in review</span>
+            </div>
+            <h3 class="pub-title">
+              AdaFrame: Hierarchical Multimodal Deduplication with Adaptive
+              Information Budgeting for Cost-Efficient Video Advertisement
+              Analysis
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B., Luthra, A., Deng, Q.</p>
+            <p class="pub-links">
+              <a href="assets/papers/adaframe.pdf">pdf</a>
+              <a href="#">arxiv</a>
+              <a href="#">bibtex</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2025</span>
+              <span class="venue">IEEE ICAIC</span>
+            </div>
+            <h3 class="pub-title">
+              Advanced Facial Emotion Classification with 135 Classes for
+              Enhanced Cybersecurity Applications
+            </h3>
+            <p class="pub-authors">
+              Powers, G., Jin, A., Tonmoy, A. B., Cao, H., Gohel, H., Deng, Q.
+            </p>
+            <p class="pub-links">
+              <a href="https://ieeexplore.ieee.org/abstract/document/10848788">ieee</a>
+              <a href="#">bibtex</a>
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" id="projects">
+        <h2 class="block-title">
+          <span class="num">03 :</span> Selected Projects
+          <a class="see-all" href="projects/index.html">see all &rarr;</a>
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">SemanticSentry</h3>
+              <span class="project-tag">2025 &middot; library</span>
+            </div>
+            <p class="project-desc">
+              Open-source library accompanying our BlackboxNLP submission.
+              A model-agnostic framework for detecting semantic drift in
+              embedding spaces &mdash; quantifying geometric transformations
+              induced by fine-tuning, quantization, and LoRA updates without
+              requiring labeled evaluation data. Combines CKA for global
+              structure, NPS for local neighborhoods, and Isotropy for
+              spectral geometry, accelerated by FAISS nearest-neighbor search
+              and surfaced through W&amp;B and MLflow hooks.
+            </p>
+            <ul class="stack">
+              <li>python</li>
+              <li>pytorch</li>
+              <li>faiss</li>
+              <li>transformers</li>
+              <li>clip</li>
+              <li>w&amp;b</li>
+              <li>mlflow</li>
+            </ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">AdLovin</h3>
+              <span class="project-tag">Oct 2025 &middot; CalHacks-12 winner</span>
+            </div>
+            <p class="project-desc">
+              A multi-agent advertisement analysis pipeline combining computer
+              vision, vector retrieval, and LLM reasoning to extract marketing
+              and business signals from video. Reaches 70&ndash;90% frame
+              deduplication and reduces vision-API cost by roughly 70% while
+              preserving downstream extraction quality.
+            </p>
+            <ul class="stack">
+              <li>python</li>
+              <li>claude api</li>
+              <li>chromadb</li>
+              <li>opencv</li>
+              <li>pytorch</li>
+              <li>hubert</li>
+              <li>ffmpeg</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="experience">
+        <h2 class="block-title">
+          <span class="num">04 :</span> Experience
+          <a class="see-all" href="experience/index.html">see all &rarr;</a>
+        </h2>
+
+        <ol class="experience">
+          <li class="role">
+            <div class="role-head">
+              <h3 class="role-title">Machine Learning Researcher</h3>
+              <span class="role-when">Jan &mdash; Apr 2026</span>
+            </div>
+            <p class="role-where">
+              <em>Wabash College</em>
+            </p>
+            <p class="role-note">
+              Built <em>AdaFrame</em>, a three-tier deduplication cascade
+              (perceptual hash &rarr; LPIPS &rarr; CLIP clustering) with
+              adaptive per-video frame budgets &mdash; cut VLM inference
+              cost by 75% and frame count by 48% on the Pitt Ads Dataset
+              while improving topic accuracy to 86.0% (+1.6&nbsp;pp).
+              Paper under review at ACM Multimedia 2026.
+            </p>
+          </li>
+
+          <li class="role">
+            <div class="role-head">
+              <h3 class="role-title">Summer Research Assistant (Robotics)</h3>
+              <span class="role-when">May &mdash; Aug 2025</span>
+            </div>
+            <p class="role-where">
+              <em>Wabash College &middot; Math &amp; CS Dept</em>, advised
+              by Dr. Qixin Deng
+            </p>
+            <p class="role-note">
+              Autonomous navigation fusing GPS, computer vision, and LiDAR
+              with multi-sensor fusion and emergency protocols. 97%
+              obstacle detection accuracy and ~2&nbsp;m positional
+              precision in outdoor testing.
+            </p>
+          </li>
+
+          <li class="role">
+            <div class="role-head">
+              <h3 class="role-title">Machine Learning Research Intern</h3>
+              <span class="role-when">Aug 2024 &mdash; Apr 2025</span>
+            </div>
+            <p class="role-where">
+              <em>Wabash College</em>
+            </p>
+            <p class="role-note">
+              Built a U-Net + ResNet model for facial-emotion recognition
+              across 135 compound classes; collaborated with cybersecurity
+              and HCI partners on behavioural-threat detection. Presented
+              at IEEE ICAIC 2025.
+            </p>
+          </li>
+
+        </ol>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">05 :</span> Awards
+        </h2>
+        <ul class="awards">
+          <li>
+            <span class="award-name">Presidential International Scholarship</span>
+            <span class="award-when">Wabash College</span>
+          </li>
+          <li>
+            <span class="award-name">
+              J. Crawford Polley Mathematical Writing Prize
+            </span>
+            <span class="award-when">May 2025</span>
+          </li>
+          <li>
+            <span class="award-name">CalHacks-12 Winner</span>
+            <span class="award-when">Berkeley &middot; 2025</span>
+          </li>
+          <li>
+            <span class="award-name">UAP CyberSiege-25 Winner</span>
+            <span class="award-when">2025</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">06 :</span> Coursework
+        </h2>
+
+        <div class="course-group">
+          <p class="course-label">computer science</p>
+          <ul class="chips">
+            <li>Data Structures &amp; Algorithms</li>
+            <li>Machine Learning</li>
+            <li>Compiler Design</li>
+            <li>Autonomous Robotics</li>
+            <li>Functional Programming</li>
+            <li>Physics-Informed ML</li>
+          </ul>
+        </div>
+
+        <div class="course-group">
+          <p class="course-label">mathematics</p>
+          <ul class="chips chips-math">
+            <li>Multivariable Calculus</li>
+            <li>Linear Algebra</li>
+            <li>Differential Equations</li>
+            <li>Numerical Methods</li>
+            <li>Stochastic Simulation</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p class="signoff">
+          brewed in good old earth &middot; 2026
+        </p>
+        <p class="signoff small">
+          hand-written html &amp; css &middot; no javascript &middot;
+          <a href="https://github.com/abtonmoy">view source</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
