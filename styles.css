@@ -12,10 +12,12 @@
   --grounds: #d4d4d4;      /* rule lines */
   --grounds-soft: #e6e6e6;
 
-  --serif: "Fraunces", "Iowan Old Style", "Sitka Text", Cambria, Georgia,
-    serif;
-  --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
+  --serif: "IBM Plex Serif", "Iowan Old Style", "Sitka Text", Cambria,
+    Georgia, serif;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, Consolas,
+    monospace;
   --hand: "Caveat", "Bradley Hand", "Marker Felt", cursive;
 
   --measure: 720px;
@@ -131,12 +133,12 @@ del {
 .brand-glyph {
   display: inline-flex;
   align-items: baseline;
-  font-family: "Instrument Serif", "Fraunces", "EB Garamond", serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 32px;
+  font-family: var(--mono);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
   line-height: 0.85;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.04em;
   color: var(--crema-deep);
   position: relative;
   padding: 2px 4px 0 0;
@@ -1060,8 +1062,7 @@ del {
 }
 
 .post-body code {
-  font-family: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo,
-    Consolas, monospace;
+  font-family: var(--mono);
   font-size: 0.88em;
   background: var(--foam);
   border: 1px solid var(--grounds);
@@ -1599,4 +1600,35 @@ del {
     color: var(--espresso) !important;
     background: none !important;
   }
+}
+
+/* ---------- Plex: monospace for numbers, tags & metadata ---------- */
+/* Placed last so it overrides the per-component font-family above.    */
+
+.nav-list,
+.block-title .num,
+.block-title .see-all,
+.pub-meta,
+.project-tag,
+.role-when,
+.edu-when,
+.award-when,
+.post-date,
+.post-tag,
+.page-eyebrow,
+.contribution-label,
+.stack li,
+.chips li,
+.chip-tag {
+  font-family: var(--mono);
+}
+
+/* mono runs slightly wide — ease the tracking on the small label chips */
+.nav-list {
+  letter-spacing: -0.01em;
+}
+.pub-meta,
+.stack li,
+.chips li {
+  letter-spacing: 0;
 }
