@@ -185,14 +185,55 @@
 
       <section class="block">
         <h2 class="block-title">
-          <span class="num">03 :</span> Contributions to other projects
+          <span class="num">03 :</span> Merged into other projects
         </h2>
 
         <ul class="projects">
           <li class="project">
             <div class="project-head">
+              <h3 class="project-name">verl</h3>
+              <span class="project-tag">RL post-training &middot; 3 merged</span>
+            </div>
+            <p class="project-desc">
+              Three fixes to the HybridFlow RL post-training framework. The
+              critic value loss was normalized per micro-batch rather than over
+              the global mini-batch, so the accumulated critic gradient was
+              inflated by the micro-batch count and changed whenever that count
+              did. Separately, the multi-turn tool agent loop dropped the chat
+              template's turn separator at turn boundaries, and the fix for it
+              needed a follow-up once multimodal processors turned out to
+              reject the bare-string probe used to derive that separator.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/verl-project/verl/pull/6957">#6957</a>
+              <a href="https://github.com/verl-project/verl/pull/6921">#6921</a>
+              <a href="https://github.com/verl-project/verl/pull/6937">#6937</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">NVIDIA NeMo &middot; Emerging-Optimizers</h3>
+              <span class="project-tag">optimizer research &middot; 3 merged</span>
+            </div>
+            <p class="project-desc">
+              Added the left-spectral counterpart to the existing polargrad
+              orthogonalization, then consolidated the left and right variants
+              into a single function after review. Later added a composable
+              row-norm update rule that scales each row of the momentum to unit
+              norm, with optional centering to match the polargrad functions.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/NVIDIA-NeMo/Emerging-Optimizers/pull/247">#247</a>
+              <a href="https://github.com/NVIDIA-NeMo/Emerging-Optimizers/pull/248">#248</a>
+              <a href="https://github.com/NVIDIA-NeMo/Emerging-Optimizers/pull/253">#253</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
               <h3 class="project-name">voxel51 / fiftyone</h3>
-              <span class="project-tag">2026 &middot; merged</span>
+              <span class="project-tag">visual AI &middot; 1 merged</span>
             </div>
             <p class="project-desc">
               Documented two behaviours of the similarity index that are easy
@@ -211,17 +252,51 @@
 
           <li class="project">
             <div class="project-head">
-              <h3 class="project-name">embeddings-benchmark / mteb</h3>
-              <span class="project-tag">2026 &middot; merged</span>
+              <h3 class="project-name">embeddings-benchmark &middot; mteb</h3>
+              <span class="project-tag">benchmarks &middot; 10 merged</span>
             </div>
             <p class="project-desc">
               Added both generations of the fusion-embedding family to the MTEB
-              model registry and submitted results across the audio and video
-              benchmark boards, including a torchcodec-native video path
-              adopted after maintainer review.
+              model registry and submitted results across the text, audio and
+              video benchmark boards, including a torchcodec-native video path
+              adopted after maintainer review, plus revision pins and citation
+              updates as the models moved.
             </p>
             <p class="project-links">
-              <a href="https://github.com/embeddings-benchmark/mteb">github</a>
+              <a href="https://github.com/embeddings-benchmark/mteb/pull/4909">mteb #4909</a>
+              <a href="https://github.com/embeddings-benchmark/mteb/pull/4952">#4952</a>
+              <a href="https://github.com/embeddings-benchmark/results/pull/601">results #601</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">qdrant</h3>
+              <span class="project-tag">vector database &middot; 1 merged</span>
+            </div>
+            <p class="project-desc">
+              Added Fusion Embedding 2 to Qdrant's embeddings integrations, so
+              the family appears alongside the other supported providers in
+              their documentation.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/qdrant/landing_page/pull/2548">pr #2548</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">fortress &amp; tilion</h3>
+              <span class="project-tag">tooling &middot; 8 merged</span>
+            </div>
+            <p class="project-desc">
+              Test suites for the Node SDK and the patch-set checker, a CI
+              pipeline with a patch-integrity linter and a markdown link and
+              badge checker, a release-asset validator, and a real ad-blocking
+              mode for the browser engine built on adblock-rust with EasyList.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/tiliondev/fortress">fortress</a>
             </p>
           </li>
         </ul>
@@ -229,7 +304,72 @@
 
       <section class="block">
         <h2 class="block-title">
-          <span class="num">04 :</span> How I release
+          <span class="num">04 :</span> Open &amp; in review
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Liger-Kernel</h3>
+              <span class="project-tag">Triton kernels &middot; in review</span>
+            </div>
+            <p class="project-desc">
+              Native Sparse Attention as a Triton-kernel-backed module,
+              implementing the natively-trainable sparse attention built for
+              grouped-query models, which closes a standing request on the
+              repo. A second patch adds the missing <code>nn.Module</code>
+              wrapper for the existing attention-residuals op, completing that
+              op's artifact set.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/linkedin/Liger-Kernel/pull/1288">nsa kernels</a>
+              <a href="https://github.com/linkedin/Liger-Kernel/pull/1293">attnres wrapper</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">vllm-omni</h3>
+              <span class="project-tag">distributed inference &middot; in review</span>
+            </div>
+            <p class="project-desc">
+              Distributed tiled VAE encode for two diffusion pipelines, the
+              encode-side counterpart to the existing decode paths: one for
+              LTX-2 video and one for the Qwen-Image edit pipelines, each
+              following the recipe already established for Wan.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/vllm-project/vllm-omni/pull/4831">ltx-2</a>
+              <a href="https://github.com/vllm-project/vllm-omni/pull/4933">qwen-image edit</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">lerobot, chroma, theia, rl_sar</h3>
+              <span class="project-tag">robotics &amp; retrieval &middot; in review</span>
+            </div>
+            <p class="project-desc">
+              A rotation-vector canonicalization fix in LeRobot's action
+              interpolator; a Fusion Embedding function for Chroma; C-RADIO
+              added as a teacher in Theia; and a frame fix in rl_sar, where the
+              Lite3 angular velocity was read in the world frame where the
+              policy expects the body frame, which is the same bug class the
+              Efferent doctor exists to catch.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/huggingface/lerobot/pull/4002">lerobot</a>
+              <a href="https://github.com/chroma-core/chroma/pull/7519">chroma</a>
+              <a href="https://github.com/rai-opensource/theia/pull/33">theia</a>
+              <a href="https://github.com/fan-ziqi/rl_sar/pull/184">rl_sar</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">05 :</span> How I release
         </h2>
 
         <p class="page-lede">
