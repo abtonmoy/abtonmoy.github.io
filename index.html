@@ -61,9 +61,12 @@
           </p>
 
           <p class="identity">
-            I think about how learned representations <em>deform</em>
-            under fine-tuning, quantization, and distribution shift
-            &mdash; and how to keep them cheap at scale. Currently
+            I build open models that give machines <em>senses</em> &mdash;
+            touch, heat, motion and sound, in one space you can search in
+            plain language. I also think about how learned representations
+            deform under fine-tuning, quantization, and distribution shift,
+            and how to keep them cheap at scale. Currently running
+            <a href="https://www.eximiuslabs.com/">Eximius Labs</a> and
             co-founding <a href="https://skop.dev/">Skop</a>.
           </p>
 
@@ -148,13 +151,22 @@
         </h2>
         <ul class="now-list">
           <li>
+            Teaching a frozen 2B model new senses at
+            <a href="https://www.eximiuslabs.com/"><em>Eximius Labs</em></a>
+            &mdash; touch, thermal and motion, all open weight.
+          </li>
+          <li>
+            <em>Tactus</em> reads a $10 pressure glove and names what it is
+            holding, above the accuracy of the dataset authors' own supervised
+            CNN.
+          </li>
+          <li>
+            Two papers heading to arXiv: one on adding a modality to a frozen
+            model without changing a single existing embedding, one on what a
+            contrastive corpus actually teaches an audio embedding.
+          </li>
+          <li>
             Building <a href="https://skop.dev/"><em>Skop</em></a>.
-          </li>
-          <li>
-            <em>AdaFrame</em> is under review at ACM Multimedia 2026.
-          </li>
-          <li>
-            <em>SemanticSentry</em> is under review at BlackboxNLP @ EMNLP 2026.
           </li>
           <li>
             reading on representation geometry, post-quantization drift, and
@@ -170,6 +182,58 @@
         </h2>
 
         <ol class="pubs">
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">arXiv</span>
+            </div>
+            <h3 class="pub-title">
+              Fusion Embedding: A Unified Embedding Space for Text, Image,
+              Video, and Audio
+            </h3>
+            <p class="pub-authors">
+              Tonmoy, A. B., Hoque, K. F., Arham, M. S. I., Luthra, A.
+            </p>
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2607.18666">arxiv</a>
+              <a href="https://huggingface.co/EximiusLabs">weights</a>
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">code</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">arXiv</span>
+              <span class="status">in submission</span>
+            </div>
+            <h3 class="pub-title">
+              Modality-Gated Deep Adapters: Adding a Modality to a Frozen
+              Embedding Model with Exact Preservation
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B.</p>
+            <p class="pub-links">
+              <a href="https://huggingface.co/EximiusLabs">weights</a>
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">code</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">arXiv</span>
+              <span class="status">in submission</span>
+            </div>
+            <h3 class="pub-title">
+              Discriminative Axis, Not Data Volume: What a Contrastive Corpus
+              Teaches an Audio Embedding
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B.</p>
+            <p class="pub-links">
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">code</a>
+            </p>
+          </li>
+
           <li class="pub">
             <div class="pub-meta">
               <span class="year">2026</span>
@@ -236,6 +300,79 @@
         <ul class="projects">
           <li class="project">
             <div class="project-head">
+              <h3 class="project-name">Fusion Embedding &amp; the sense packs</h3>
+              <span class="project-tag">2026 &middot; open weights</span>
+            </div>
+            <p class="project-desc">
+              One embedding space for text, image, video, audio, thermal,
+              motion and touch. The base model stays frozen and each new sense
+              arrives as a separately loadable pack, so existing embeddings
+              stay bit-for-bit valid and gaining a modality never costs a
+              re-index. <em>Tactus</em> reads a 32&times;32 pressure glove at
+              0.77 top-1 / 0.94 top-3 on the MIT STAG benchmark, where the
+              dataset authors' own supervised CNN reached 0.76, while
+              answering open-vocabulary text queries rather than a fixed label
+              set. <em>Tactus Mat</em> does the same for a hospital bed mat at
+              0.957 top-1 across 17 postures, <em>Ember</em> lifts
+              thermal-to-text retrieval from 0.224 to 0.785, and
+              <em>Tremor</em> reads inertial motion. On the MTEB and MAEB
+              leaderboards.
+            </p>
+            <ul class="stack">
+              <li>python</li>
+              <li>pytorch</li>
+              <li>transformers</li>
+              <li>modal</li>
+              <li>huggingface</li>
+              <li>contrastive learning</li>
+              <li>adapters</li>
+            </ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Engram</h3>
+              <span class="project-tag">2026 &middot; pip install engram-robomem</span>
+            </div>
+            <p class="project-desc">
+              The memory layer for physical AI. Index a robot's video, audio,
+              motion and touch into one embedding space on a shared clock,
+              then ask questions about it in plain language, including the
+              temporal reasoning retrieval alone cannot do: when did it last
+              lose grip, what was it holding before the shelf fell. Apache-2.0.
+            </p>
+            <ul class="stack">
+              <li>python</li>
+              <li>lancedb</li>
+              <li>pytorch</li>
+              <li>fastapi</li>
+            </ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Efferent</h3>
+              <span class="project-tag">2026 &middot; pip install efferent</span>
+            </div>
+            <p class="project-desc">
+              Universal ONNX policy deployment: any trained control policy, any
+              robot, bound by joint name instead of the hand-maintained index
+              arrays every deployment repo warns about. A pre-flight doctor
+              probes the network itself for permuted joint order, world-versus-
+              body frame errors, missing scale factors and dead command dims,
+              so the bugs that make robots fall are caught before anything
+              moves. Apache-2.0.
+            </p>
+            <ul class="stack">
+              <li>python</li>
+              <li>onnx</li>
+              <li>mujoco</li>
+              <li>ros2</li>
+            </ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
               <h3 class="project-name">SemanticSentry</h3>
               <span class="project-tag">2025 &middot; library</span>
             </div>
@@ -292,6 +429,26 @@
         </h2>
 
         <ol class="experience">
+          <li class="role">
+            <div class="role-head">
+              <h3 class="role-title">Founder &amp; Research Lead</h3>
+              <span class="role-when">2026 &mdash; present</span>
+            </div>
+            <p class="role-where">
+              <em><a href="https://www.eximiuslabs.com/">Eximius Labs</a></em>
+            </p>
+            <p class="role-note">
+              Open models that give machines senses. Shipped a multimodal
+              embedding family and four sense packs for touch, thermal and
+              inertial motion, all trained against a byte-frozen base so no
+              existing embedding ever changes; the memory layer that indexes a
+              robot's sessions and answers questions about them in language;
+              and a policy-deployment tool that catches wiring bugs before a
+              robot moves. Weights, code, training recipes and the negative
+              results are public. On the MTEB and MAEB leaderboards.
+            </p>
+          </li>
+
           <li class="role">
             <div class="role-head">
               <h3 class="role-title">Machine Learning Researcher</h3>
