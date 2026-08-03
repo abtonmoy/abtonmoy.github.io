@@ -32,10 +32,11 @@
         <a href="../index.html#about">01 : about</a>
         <a href="../research/index.html">02 : research</a>
         <a href="./index.html" aria-current="page">03 : projects</a>
-        <a href="../experience/index.html">04 : experience</a>
-        <a href="../blog/index.html">05 : blog</a>
-        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">06 : cv</a>
-        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">07 : resume</a>
+        <a href="../oss/index.html">04 : open source</a>
+        <a href="../experience/index.html">05 : experience</a>
+        <a href="../blog/index.html">06 : blog</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">07 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">08 : resume</a>
       </nav>
     </header>
 
@@ -65,6 +66,105 @@
         </h2>
 
         <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Fusion Embedding &amp; the sense packs</h3>
+              <span class="project-tag">2026 &middot; open weights &middot; arXiv</span>
+            </div>
+            <p class="project-desc">
+              One embedding space for text, image, video, audio, thermal,
+              inertial motion and touch. The base model stays frozen and each
+              new sense arrives as a separately loadable pack, so existing
+              embeddings stay bit-for-bit valid and gaining a modality never
+              costs a re-index. In practice a sensor nobody has modeled before
+              becomes a small trained head and an afternoon on one GPU.
+              Released on the MTEB and MAEB leaderboards with the training
+              recipes, the evaluation code, and the negative results.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>pytorch</li><li>transformers</li>
+              <li>modal</li><li>huggingface</li><li>contrastive learning</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://arxiv.org/abs/2607.18666">paper</a>
+              <a href="https://huggingface.co/EximiusLabs">weights</a>
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">github</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Tactus &amp; Tactus Mat</h3>
+              <span class="project-tag">2026 &middot; touch</span>
+            </div>
+            <p class="project-desc">
+              Object recognition from pressure alone. Tactus reads a
+              32&times;32 resistive glove and answers text queries rather than
+              a fixed label set, reaching 0.77 top-1 and 0.94 top-3 on the MIT
+              STAG benchmark where the dataset authors' own supervised CNN
+              reached 0.76. Tactus Mat is the same recipe retrained for a
+              64&times;32 hospital bed mat, answering 17 in-bed postures at
+              0.957 top-1 on held-out subjects, and 0.882 against coarse
+              phrases it never saw during training. Both ship with notebooks
+              that run on public data.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>pytorch</li><li>masked autoencoding</li>
+              <li>sensor calibration</li><li>modal</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-tactus">tactus</a>
+              <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-tactus-mat">tactus mat</a>
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">github</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Engram</h3>
+              <span class="project-tag">2026 &middot; pip install engram-robomem</span>
+            </div>
+            <p class="project-desc">
+              The memory layer for physical AI. Index a robot's video, audio,
+              motion and touch into one embedding space on a shared clock,
+              then ask questions in plain language, including the temporal
+              reasoning that retrieval alone cannot do: when did it last lose
+              grip, what was it holding before the shelf fell. Apache-2.0, on
+              PyPI, with a live demo over a real humanoid session.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>lancedb</li><li>pytorch</li><li>fastapi</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/Eximius-Labs/engram">github</a>
+              <a href="https://pypi.org/project/engram-robomem">pypi</a>
+              <a href="https://www.eximiuslabs.com/playground">demo</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Efferent</h3>
+              <span class="project-tag">2026 &middot; pip install efferent</span>
+            </div>
+            <p class="project-desc">
+              Universal ONNX policy deployment: any trained control policy on
+              any robot, bound by joint name instead of the hand-maintained
+              index arrays that every deployment repo warns about. A
+              pre-flight doctor probes the network itself for permuted joint
+              order, world-versus-body frame errors, missing scale factors and
+              dead command dimensions, so the bug class that makes robots fall
+              is caught before anything moves. Apache-2.0.
+            </p>
+            <ul class="stack">
+              <li>python</li><li>onnx</li><li>mujoco</li><li>ros2</li>
+            </ul>
+            <p class="project-links">
+              <a href="https://github.com/Eximius-Labs/efferent">github</a>
+              <a href="https://pypi.org/project/efferent">pypi</a>
+            </p>
+          </li>
+
           <li class="project">
             <div class="project-head">
               <h3 class="project-name">SemanticSentry</h3>

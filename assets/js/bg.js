@@ -39,6 +39,7 @@
     research: { density: 0.9, rise: 0.55, sway: 0.22, scale: 1.45, opacity: 0.22 },
     projects: { density: 1.15, rise: 0.28, sway: 0.42, scale: 0.7, opacity: 0.24 },
     experience: { density: 1.0, rise: 0.22, sway: 0.52, scale: 1.0, opacity: 0.24 },
+    oss: { density: 1.05, rise: 0.36, sway: 0.34, scale: 0.85, opacity: 0.23 },
     blog: { density: 0.7, rise: 0.46, sway: 0.3, scale: 1.25, opacity: 0.2 },
     post: { density: 0.65, rise: 0.3, sway: 0.26, scale: 1.1, opacity: 0.16 },
   };

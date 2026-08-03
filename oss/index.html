@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open Source &mdash; Abdul Basit Tonmoy</title>
+    <meta
+      name="description"
+      content="Open-source work by Abdul Basit Tonmoy: released models and weights, published packages, and contributions to other people's projects."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../assets/img/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a href="../index.html" class="brand">
+        <span class="brand-glyph">abt</span>
+      </a>
+      <nav class="nav-list" aria-label="primary">
+        <a href="../index.html#about">01 : about</a>
+        <a href="../research/index.html">02 : research</a>
+        <a href="../projects/index.html">03 : projects</a>
+        <a href="./index.html" aria-current="page">04 : open source</a>
+        <a href="../experience/index.html">05 : experience</a>
+        <a href="../blog/index.html">06 : blog</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">07 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">08 : resume</a>
+      </nav>
+    </header>
+
+    <main class="page" id="top">
+      <header class="page-header">
+        <p class="page-eyebrow">
+          <a href="../index.html" class="back-link">&larr; back</a>
+          <span class="dot">&middot;</span>
+          <span>open source</span>
+        </p>
+
+        <h1 class="page-title">
+          Things I've <em>released</em> &amp; contributed
+        </h1>
+
+        <p class="page-lede">
+          Nearly everything I build ends up public: weights, training code,
+          evaluation harnesses, and the results that did not work. This page
+          collects the released artifacts, the packages on PyPI, and the
+          patches I've sent to other people's projects.
+        </p>
+      </header>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">01 :</span> Released models
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">fusion-embedding</h3>
+              <span class="project-tag">open weights &middot; two generations</span>
+            </div>
+            <p class="project-desc">
+              A multimodal embedding family mapping text, image, video, audio,
+              thermal, inertial motion and touch into one vector space. Two
+              architecture generations are released, the first a trained
+              connector and the second adding modality-gated deep adapters.
+              Both are on the MTEB and MAEB leaderboards.
+            </p>
+            <p class="project-links">
+              <a href="https://huggingface.co/EximiusLabs">weights</a>
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">github</a>
+              <a href="https://arxiv.org/abs/2607.18666">paper</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Tactus &amp; Tactus Mat</h3>
+              <span class="project-tag">touch &middot; pressure arrays</span>
+            </div>
+            <p class="project-desc">
+              Open-vocabulary object recognition from pressure alone.
+              0.77 top-1 and 0.94 top-3 on the MIT STAG benchmark against the
+              dataset authors' own supervised CNN at 0.76, and a second
+              profile for body pressure mats at 0.957 top-1 across 17 in-bed
+              postures. Both ship runnable notebooks and the full evaluation.
+            </p>
+            <p class="project-links">
+              <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-tactus">tactus</a>
+              <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-tactus-mat">tactus mat</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Ember &amp; Tremor</h3>
+              <span class="project-tag">thermal &middot; inertial motion</span>
+            </div>
+            <p class="project-desc">
+              Ember is a thermal sense pack that lifts thermal-to-text
+              retrieval from 0.224 to 0.785 while leaving every non-thermal
+              output bit-for-bit unchanged. Tremor reads body-worn and robot
+              accelerometers as language, and ships a head specialized for the
+              Unitree G1 humanoid.
+            </p>
+            <p class="project-links">
+              <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-ember">ember</a>
+              <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-tremor">tremor</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">02 :</span> Packages
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">engram-robomem</h3>
+              <span class="project-tag">Apache-2.0 &middot; PyPI</span>
+            </div>
+            <p class="project-desc">
+              The memory layer for physical AI. Indexes a robot's video, audio,
+              motion and touch into one embedding space on a shared clock and
+              answers questions in plain language, including temporal reasoning
+              that retrieval alone cannot do.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/Eximius-Labs/engram">github</a>
+              <a href="https://pypi.org/project/engram-robomem">pypi</a>
+              <a href="https://www.eximiuslabs.com/playground">demo</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">efferent</h3>
+              <span class="project-tag">Apache-2.0 &middot; PyPI</span>
+            </div>
+            <p class="project-desc">
+              Universal ONNX policy deployment. Binds a trained control policy
+              to a robot by joint name rather than by hand-maintained index
+              arrays, with a pre-flight doctor that probes the network for
+              permuted joint order, frame errors, missing scales and dead
+              command dimensions before the robot moves.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/Eximius-Labs/efferent">github</a>
+              <a href="https://pypi.org/project/efferent">pypi</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">semantic-sentry</h3>
+              <span class="project-tag">library &middot; research code</span>
+            </div>
+            <p class="project-desc">
+              Model-agnostic detection of semantic drift in embedding spaces.
+              Implements CKA, neighborhood preservation and isotropy
+              diagnostics, plus the controls and pre-registrations behind the
+              BlackboxNLP submission.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/abtonmoy/semantic-sentry">github</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">03 :</span> Contributions to other projects
+        </h2>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">voxel51 / fiftyone</h3>
+              <span class="project-tag">2026 &middot; merged</span>
+            </div>
+            <p class="project-desc">
+              Documented two behaviours of the similarity index that are easy
+              to hit and hard to debug afterwards: a text-searchable index must
+              name its model rather than hold an instance, and precomputed
+              embeddings can be combined with a model name, which is the only
+              path for data whose embeddings cannot come from a sample's media.
+              Found while building a zoo model source that puts sensor streams
+              into a text space.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/voxel51/fiftyone/pull/8171">pr #8171</a>
+              <a href="https://github.com/voxel51/fiftyone/issues/3961">issue #3961</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">embeddings-benchmark / mteb</h3>
+              <span class="project-tag">2026 &middot; merged</span>
+            </div>
+            <p class="project-desc">
+              Added both generations of the fusion-embedding family to the MTEB
+              model registry and submitted results across the audio and video
+              benchmark boards, including a torchcodec-native video path
+              adopted after maintainer review.
+            </p>
+            <p class="project-links">
+              <a href="https://github.com/embeddings-benchmark/mteb">github</a>
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2 class="block-title">
+          <span class="num">04 :</span> How I release
+        </h2>
+
+        <p class="page-lede">
+          Weights come with the evaluation code that produced their numbers,
+          the recipe needed to retrain them, and the levers that failed. Claims
+          are scoped to what was measured: means across seeds rather than best
+          runs, and held-out splits stated plainly. When a result did not
+          reproduce, that is written down too, because the negative results
+          have been more useful to me than most of the positive ones.
+        </p>
+      </section>
+      <footer class="footer">
+        <p class="signoff">
+          brewed in good old earth &middot; 2026
+        </p>
+        <p class="signoff small">
+          hand-written html, css &amp; a little webgl &middot;
+          <a href="https://github.com/abtonmoy">view source</a>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../assets/js/bg.js" data-steam="oss" defer></script>
+  </body>
+</html>

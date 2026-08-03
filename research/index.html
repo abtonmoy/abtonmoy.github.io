@@ -32,10 +32,11 @@
         <a href="../index.html#about">01 : about</a>
         <a href="./index.html" aria-current="page">02 : research</a>
         <a href="../projects/index.html">03 : projects</a>
-        <a href="../experience/index.html">04 : experience</a>
-        <a href="../blog/index.html">05 : blog</a>
-        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">06 : cv</a>
-        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">07 : resume</a>
+        <a href="../oss/index.html">04 : open source</a>
+        <a href="../experience/index.html">05 : experience</a>
+        <a href="../blog/index.html">06 : blog</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">07 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">08 : resume</a>
       </nav>
     </header>
 
@@ -66,6 +67,19 @@
         </h2>
 
         <ol class="interests">
+          <li class="interest">
+            <h3 class="interest-name">Senses for machines</h3>
+            <p class="interest-desc">
+              Most sensors a robot carries produce numbers no model reads.
+              I work on putting those signals into the same space as language,
+              so a pressure array or a thermal frame can be searched with a
+              sentence. The recurring question is how much can be added to a
+              frozen model from the outside, and what it costs to keep every
+              existing embedding exactly as it was. This is the thread behind
+              <em>Fusion Embedding</em> and the sense packs.
+            </p>
+          </li>
+
           <li class="interest">
             <h3 class="interest-name">Representation geometry</h3>
             <p class="interest-desc">
@@ -106,6 +120,141 @@
         </h2>
 
         <ol class="pubs pubs-detailed">
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">arXiv</span>
+            </div>
+            <h3 class="pub-title">
+              Fusion Embedding: A Unified Embedding Space for Text, Image,
+              Video, and Audio
+            </h3>
+            <p class="pub-authors">
+              Tonmoy, A. B., Hoque, K. F., Arham, M. S. I., Luthra, A.
+            </p>
+
+            <p class="pub-abstract">
+              A technical report on two generations of an open-weight
+              multimodal embedding family. A strong vision-language base is
+              frozen and new modalities are attached from the outside, first
+              through a trained connector and then through modality-gated
+              deep adapters, so text, image and video vectors stay identical
+              to the base model and gaining a modality never forces a
+              re-index. The report covers the training recipe, the corpus
+              decisions that mattered, and the levers that did not work.
+            </p>
+
+            <p class="pub-links">
+              <a href="https://arxiv.org/abs/2607.18666">arxiv</a>
+              <a href="https://huggingface.co/EximiusLabs">weights</a>
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">code</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">arXiv</span>
+              <span class="status">in submission</span>
+            </div>
+            <h3 class="pub-title">
+              Modality-Gated Deep Adapters: Adding a Modality to a Frozen
+              Embedding Model with Exact Preservation
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B.</p>
+
+            <p class="pub-abstract">
+              Extending a deployed embedding model to a new modality with
+              existing parameter-efficient methods silently changes its
+              outputs, which invalidates every stored embedding. This paper
+              proposes bottleneck adapters grouped into per-modality packs
+              that execute only while their own modality is being encoded.
+              Inputs no pack claims traverse the base model's own computation
+              graph unchanged, and co-loaded packs compose with an exact-zero
+              isolation matrix. Both properties hold after arbitrary training,
+              not only at initialization, and are checked by equality tests on
+              the released checkpoints.
+            </p>
+
+            <p class="contribution-label">contributions</p>
+            <ul class="pub-contributions">
+              <li>
+                Modality-gated deep adapters with a machine-checked exactness
+                guarantee, stated as propositions and verified on the released
+                weights.
+              </li>
+              <li>
+                An audio pack that improves audio-to-text retrieval by +3.4 to
+                +5.4 R@10 over an identically trained control, positive at
+                every seed and reproduced at eleven times the data.
+              </li>
+              <li>
+                A thermal pack reusing the base model's own frozen vision
+                path, lifting thermal-to-text retrieval from 0.224 to 0.785.
+              </li>
+              <li>
+                An encoder-swap result locating the missing capacity: an
+                external audio encoder that outranks Whisper-family encoders
+                in CLAP-style comparisons loses by 16 R@10 inside the frozen
+                model.
+              </li>
+            </ul>
+
+            <p class="pub-links">
+              <a href="https://huggingface.co/EximiusLabs">weights</a>
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">code</a>
+            </p>
+          </li>
+
+          <li class="pub">
+            <div class="pub-meta">
+              <span class="year">2026</span>
+              <span class="venue">arXiv</span>
+              <span class="status">in submission</span>
+            </div>
+            <h3 class="pub-title">
+              Discriminative Axis, Not Data Volume: What a Contrastive Corpus
+              Teaches an Audio Embedding
+            </h3>
+            <p class="pub-authors">Tonmoy, A. B.</p>
+
+            <p class="pub-abstract">
+              Scaling the corpus is the default remedy when a representation
+              lacks an attribute. This paper reports a case where it does
+              nothing and identifies what does. Adding a lexical-speech round
+              raised zero-shot keyword spotting by 76 points while reducing
+              speech-emotion recognition by 14. The loss is not a capacity
+              limit and not a data-volume problem: 29,428 mined clips whose
+              captions explicitly name emotions move emotion by
+              &minus;0.0007 at matched exposure. A contrastive objective
+              encodes an attribute only when the in-batch negatives cannot be
+              separated without it.
+            </p>
+
+            <p class="contribution-label">contributions</p>
+            <ul class="pub-contributions">
+              <li>
+                A clean case where corpus scale fails and corpus structure
+                succeeds, measured on the same audio throughout.
+              </li>
+              <li>
+                A causal intervention: collapsing caption diversity so that
+                emotion becomes the only separating axis recovers it by 8.9
+                points across three seeds, while raising caption similarity
+                alone does not.
+              </li>
+              <li>
+                A separability statistic computable from the corpus alone,
+                before training, that orders the corpora exactly as their
+                outcomes do.
+              </li>
+            </ul>
+
+            <p class="pub-links">
+              <a href="https://github.com/Eximius-Labs/fusion-embedding">code</a>
+            </p>
+          </li>
+
           <li class="pub">
             <div class="pub-meta">
               <span class="year">2026</span>
