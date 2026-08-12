@@ -211,6 +211,7 @@
             <div class="pub-meta">
               <span class="year">2026</span>
               <span class="venue">arXiv</span>
+              <span class="status">short version in submission, IROS 2026 Touch-to-Action</span>
             </div>
             <h3 class="pub-title">
               Tactus: Open-Vocabulary Object Recognition from Low-Cost
@@ -351,6 +352,31 @@
               <li>huggingface</li>
               <li>contrastive learning</li>
               <li>adapters</li>
+            </ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Fusion Perception</h3>
+              <span class="project-tag">2026 &middot; open weights</span>
+            </div>
+            <p class="project-desc">
+              The geometry-facing member of the family: a 3.1M-parameter head on
+              a frozen DINOv2-L that makes place and landmark structure
+              language-searchable in the same space as everything else. With
+              AMES reranking it reaches 92.61 / 86.03 mAP on RParis with a
+              million distractors and 87.21 / 75.14 on ROxford. I also measured
+              how much of the standard training-set cleanup actually holds up:
+              matching category names against benchmark landmarks turns out to
+              be 80% precise for the published removal set and 43% for my own
+              more aggressive one, so the audit ships alongside the weights.
+            </p>
+            <ul class="stack">
+              <li>python</li>
+              <li>pytorch</li>
+              <li>dinov2</li>
+              <li>modal</li>
+              <li>faiss</li>
             </ul>
           </li>
 

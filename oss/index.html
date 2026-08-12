@@ -118,6 +118,29 @@
             <p class="project-links">
               <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-ember">ember</a>
               <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-tremor">tremor</a>
+              <a href="https://huggingface.co/EximiusLabs/fusion-embedding-2-tremor-g1">tremor g1</a>
+            </p>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3 class="project-name">Fusion Perception</h3>
+              <span class="project-tag">geometry &middot; place recognition</span>
+            </div>
+            <p class="project-desc">
+              A 3.1M-parameter head on a frozen DINOv2-L that projects geometry
+              into the same embedding space, so place and landmark structure
+              becomes language-searchable. With AMES reranking of a top-1600
+              shortlist it reaches 92.61 / 86.03 mAP on RParis with a million
+              distractors, above the strongest published numbers I know of, and
+              87.21 / 75.14 on ROxford. Shipped with both training protocols,
+              the calibrated contamination audit behind them, and the per-image
+              scores, because the backbone's own pretraining set was seeded from
+              these benchmarks and a reader should be able to check that.
+            </p>
+            <p class="project-links">
+              <a href="https://huggingface.co/EximiusLabs/fusion-perception-1-preview">weights</a>
+              <a href="https://github.com/Eximius-Labs/fusion-perception">code</a>
             </p>
           </li>
         </ul>
