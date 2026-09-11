@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abdul Basit Tonmoy &mdash; still brewing</title>
+    <meta
+      name="description"
+      content="Abdul Basit Tonmoy's site is under development — the beans are ground, the water is heating. Check back soon."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* ---------- Under-development landing ---------- */
+
+      .wip {
+        text-align: center;
+        padding-top: 24px;
+      }
+
+      .wip .page-title {
+        margin-bottom: 16px;
+      }
+
+      .wip .page-lede {
+        margin: 0 auto 12px;
+      }
+
+      /* hand-drawn cup, inked with the same roughen filter as the
+         hero stain ring */
+      .cup-scene {
+        position: relative;
+        width: min(300px, 70vw);
+        margin: 44px auto 8px;
+      }
+
+      .cup-scene svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* steam wisps — drawn strokes that rise, swell, and fade */
+      .wisp {
+        animation: wisp-rise 3.4s ease-in-out infinite;
+        transform-origin: center 130px;
+        opacity: 0;
+      }
+
+      .wisp:nth-child(2) {
+        animation-delay: 1.1s;
+      }
+
+      .wisp:nth-child(3) {
+        animation-delay: 2.2s;
+      }
+
+      @keyframes wisp-rise {
+        0% {
+          transform: translateY(8px) scaleY(0.85);
+          opacity: 0;
+        }
+        35% {
+          opacity: 0.55;
+        }
+        70% {
+          opacity: 0.2;
+        }
+        100% {
+          transform: translateY(-16px) scaleY(1.12);
+          opacity: 0;
+        }
+      }
+
+      /* the coffee surface shivers a little, like it was just poured */
+      .coffee-surface {
+        animation: surface-shiver 5s ease-in-out infinite;
+        transform-origin: 130px 108px;
+      }
+
+      @keyframes surface-shiver {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-1.1deg);
+        }
+      }
+
+      /* handwritten margin note */
+      .wip-note {
+        font-family: var(--hand);
+        font-size: 26px;
+        color: var(--espresso-soft);
+        transform: rotate(-2deg);
+        display: inline-block;
+        margin: 4px 0 0;
+      }
+
+      /* percolating bar — a dashed rule with one bean pacing along it */
+      .percolate {
+        position: relative;
+        max-width: 340px;
+        margin: 52px auto 0;
+        border-bottom: 1.5px dashed var(--grounds);
+        height: 20px;
+      }
+
+      .percolate .bean {
+        position: absolute;
+        bottom: -6.5px;
+        left: 0;
+        width: 9px;
+        height: 13px;
+        background: var(--crema);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        box-shadow: inset 1.5px 0 0 var(--crema-deep);
+        transform: rotate(-15deg);
+        animation: percolate 7s cubic-bezier(0.45, 0, 0.55, 1) infinite
+          alternate;
+      }
+
+      @keyframes percolate {
+        from {
+          left: 2%;
+          transform: rotate(-15deg);
+        }
+        to {
+          left: 94%;
+          transform: rotate(345deg);
+        }
+      }
+
+      .percolate-label {
+        font-family: var(--sans);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--latte);
+        margin: 14px 0 0;
+      }
+
+      .wip-actions {
+        margin: 44px 0 0;
+        font-family: var(--sans);
+        font-size: 15px;
+        color: var(--latte);
+      }
+
+      .wip-actions a {
+        color: var(--espresso);
+        font-weight: 500;
+      }
+
+      .wip-actions .dot {
+        display: inline-block;
+        margin: 0 10px;
+        color: var(--grounds);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .wisp {
+          animation: none;
+          opacity: 0.4;
+        }
+        .coffee-surface,
+        .percolate .bean {
+          animation: none;
+        }
+        .percolate .bean {
+          left: 46%;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .wip-note {
+          font-size: 23px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a href="./" class="brand">
+        <span class="brand-glyph">abt</span>
+      </a>
+      <nav class="nav-list" aria-label="primary">
+        <a href="https://github.com/abtonmoy">01 : github</a>
+        <a href="https://linkedin.com/in/abdul-basit-tonmoy">02 : linkedin</a>
+        <a href="https://drive.google.com/drive/folders/1XuUOrKwvbpiu9fPLoT7gOQi841PWO5Fw?usp=sharing">03 : cv</a>
+        <a href="https://drive.google.com/drive/folders/1CNJVHpJBf2k5RYKV4sfGT2qE45m3qys4?usp=sharing">04 : resume</a>
+        <a href="mailto:atonmoy27@wabash.edu">05 : email</a>
+      </nav>
+    </header>
+
+    <main class="page" id="top">
+      <section class="wip">
+        <header class="page-header" style="margin-bottom: 0">
+          <p class="page-eyebrow" style="justify-content: center">
+            <span>under development</span>
+          </p>
+
+          <h1 class="page-title">
+            Still <em>brewing</em>.
+          </h1>
+
+          <p class="page-lede" style="text-align: center">
+            This site isn't ready to pour yet &mdash; the beans are ground,
+            the water's heating, and the words are steeping. Come back in a
+            little while.
+          </p>
+        </header>
+
+        <figure class="cup-scene" aria-hidden="true">
+          <svg
+            viewBox="0 0 260 230"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+          >
+            <defs>
+              <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.024"
+                  numOctaves="2"
+                  seed="7"
+                />
+                <feDisplacementMap in="SourceGraphic" scale="5" />
+              </filter>
+            </defs>
+
+            <!-- steam -->
+            <g
+              fill="none"
+              stroke="#0a0a0a"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              filter="url(#rough)"
+            >
+              <path class="wisp" d="M108 92 C104 78 114 72 110 58 C107 47 114 42 112 32" />
+              <path class="wisp" d="M130 88 C126 74 136 68 132 54 C129 43 136 38 134 26" />
+              <path class="wisp" d="M152 92 C148 78 158 72 154 58 C151 47 158 42 156 32" />
+            </g>
+
+            <!-- cup -->
+            <g filter="url(#rough)">
+              <path
+                d="M78 108 L88 182 Q90 194 102 194 L158 194 Q170 194 172 182 L182 108 Z"
+                fill="#fafafa"
+                stroke="#0a0a0a"
+                stroke-width="3.5"
+                stroke-linejoin="round"
+              />
+              <!-- handle -->
+              <path
+                d="M182 122 Q212 118 210 144 Q208 168 178 166"
+                fill="none"
+                stroke="#0a0a0a"
+                stroke-width="3.5"
+                stroke-linecap="round"
+              />
+              <!-- coffee -->
+              <ellipse
+                class="coffee-surface"
+                cx="130"
+                cy="108"
+                rx="49"
+                ry="9"
+                fill="#1a1a1a"
+                stroke="#0a0a0a"
+                stroke-width="2"
+              />
+              <!-- saucer -->
+              <path
+                d="M58 206 Q130 222 202 206"
+                fill="none"
+                stroke="#0a0a0a"
+                stroke-width="3"
+                stroke-linecap="round"
+                opacity="0.85"
+              />
+              <path
+                d="M74 213 Q130 224 186 213"
+                fill="none"
+                stroke="#0a0a0a"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                opacity="0.45"
+              />
+            </g>
+          </svg>
+        </figure>
+
+        <p class="wip-note">good coffee takes time&hellip;</p>
+
+        <div class="percolate" aria-hidden="true">
+          <span class="bean"></span>
+        </div>
+        <p class="percolate-label">percolating</p>
+
+        <p class="wip-actions">
+          <a href="https://github.com/abtonmoy">github</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a href="https://linkedin.com/in/abdul-basit-tonmoy">linkedin</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a href="mailto:atonmoy27@wabash.edu">nudge me about it</a>
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p class="signoff">
+          brewed in good old earth &middot; 2026
+        </p>
+        <p class="signoff small">
+          hand-written html &amp; css &middot; no javascript
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
